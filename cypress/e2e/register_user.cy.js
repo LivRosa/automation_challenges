@@ -9,10 +9,13 @@ describe('Register User', () => {
         cy.get('header').should('be.visible')
         cy.contains('Signup / Login').click()
         cy.contains('New User Signup!').should('be.visible')
+
         cy.get('[data-qa="signup-name"]').type('Lívia')
         cy.get('[data-qa="signup-email"]').type('qa_livia@gmail.com')
         cy.get('[data-qa="signup-button"]').click()
+        
         cy.contains('Enter Account Information').should('be.visible')
+
         cy.get('#id_gender1').check()
         cy.get('#name').clear()
         cy.get('#name').type('Testando')
@@ -22,6 +25,7 @@ describe('Register User', () => {
         cy.get('select#years').select('2004')
         cy.get('#newsletter').check()
         cy.get('#optin').check()
+
         cy.get('#first_name').type('Lívia')
         cy.get('#last_name').type('QA')
         cy.get('#company').type('Treinando')
@@ -32,6 +36,7 @@ describe('Register User', () => {
         cy.get('#city').type('Maravilhas')
         cy.get('#zipcode').type('01153 000')
         cy.get('#mobile_number').type('(52) 132657891')
+        
         cy.get('[data-qa="create-account"]').click()
         cy.get('[data-qa="account-created"]').should('be.visible')
         cy.get('[data-qa="continue-button"]').click()
