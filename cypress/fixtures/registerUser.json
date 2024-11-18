@@ -1,0 +1,13 @@
+{
+    "name": "QA Lívia",
+    "email": "livia@teste.com.br",
+    "password": "teste@456",
+    "address_1":"R. Aparecido Chaves",
+    "address_2":"R. José Padilha, Vl. Sete espadas",
+    "state": "Amazonas",
+    "city":"Manaus",
+    "zipcode":"01153 012",
+    "number":"(12) 982465301",
+    "months":"april",
+    "years":"1998"
+}
