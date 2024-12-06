@@ -116,7 +116,7 @@ describe('Test Case 1: Register User', () => {
         cy.get('[data-qa="email"]').type('rosaria.cida@teste.com')
         cy.get('[data-qa="message"]').type(longText, {delay:2})
 
-        cy.get('input[type="file"')
+        cy.get('input[type="file"]')
         .selectFile('cypress/upload_arquivo/sonhos.pdf')
 
         .should(input => {
@@ -188,8 +188,32 @@ describe('Test Case 1: Register User', () => {
 
         cy.contains('You have been successfully subscribed!').should('be.visible')
     })
+
+    it('Test Case 11: Add Products in Cart', () => {
+
+        cy.contains('Products').click()
+
+        cy.get(':nth-child(3) > .product-image-wrapper')
+        .trigger('mouseover')
+        cy.get('[data-product-id="1"]').eq(0).click()
+        cy.contains('Continue Shopping').click()
+
+        cy.get(':nth-child(4) > .product-image-wrapper')
+        .trigger('mouseover')
+        cy.get('[data-product-id="2"]').eq(0).click()// add ao carrinho 
+        cy.contains('View Cart').click()
+
+        cy.get('#cart_info').find('#product-1').should('exist') // find -> buscou dentro do elemento selecionado anteriormente (#cart_info) por um elemento que tenha o ID product-1
+        cy.get('#cart_info').find('#product-2').should('exist')// should -> verificou que o elemento selecionado (no caso, cart_info dentro do product-2) existe 
+
+        cy.valideProduct('product-1')
+        cy.valideProduct('product-2')
+
+    })
+
 })
 
+    
 
 
 
