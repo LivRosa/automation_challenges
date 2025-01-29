@@ -1,10 +1,7 @@
-Cypress.Commands.add('registerUserLogout', () => {
-    cy.visit('https://automationexercise.com/login')
+Cypress.Commands.add('registerUser', () => {
 
-    cy.contains('Signup / Login').click()
-    
     cy.get('[data-qa="signup-name"]').type('Lívia')
-    cy.get('[data-qa="signup-email"]').type('livia@teste.com.br')
+    cy.get('[data-qa="signup-email"]').type('praticando@livia.com.br')
     cy.get('[data-qa="signup-button"]').click()
         
     cy.get('#id_gender1').check()
@@ -27,11 +24,9 @@ Cypress.Commands.add('registerUserLogout', () => {
     cy.get('#city').type('Maravilhas')
     cy.get('#zipcode').type('01153 000')
     cy.get('#mobile_number').type('(52) 132657891')
-        
+
     cy.get('[data-qa="create-account"]').click()
     cy.get('[data-qa="continue-button"]').click()
-
-    cy.contains(' Logout').click()
 })
 
 /*find -> buscou o cart dentro do product-1 
