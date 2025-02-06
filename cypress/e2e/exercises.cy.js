@@ -114,7 +114,7 @@ describe('Test Case 1: Register User', () => {
 
         cy.get('[data-qa="name"]').type('Rosária Aparecida')
         cy.get('[data-qa="email"]').type('rosaria.cida@teste.com')
-        cy.get('[data-qa="message"]').type(longText, {delay:2})
+        cy.get('[data-qa="message"]').type(longText, {delay:2})//page_elements
 
         cy.get('input[type="file"]')
         .selectFile('cypress/upload_arquivo/sonhos.pdf')
@@ -243,7 +243,7 @@ describe('Test Case 1: Register User', () => {
         cy.get('#address_delivery').within(() => {
             cy.get('.address_firstname.address_lastname').should('contain.text', 'Mr. Lívia QA')
             cy.get('.address_address1.address_address2').eq(0).should('contain.text', 'Treinando')
-             cy.get('.address_address1.address_address2').eq(1).should('contain.text', 'R. Antonieto Chave')
+            cy.get('.address_address1.address_address2').eq(1).should('contain.text', 'R. Antonieto Chave')
             cy.get('.address_address1.address_address2').eq(2).should('contain.text', 'R. Joaquim Padilha, Vl. Lourinda')
             cy.get('.address_city.address_state_name.address_postcode').should('contain.text', 'Maravilhas São de Janeiro')
             cy.get('.address_country_name').should('contain.text','New Zealand')
