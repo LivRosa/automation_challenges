@@ -86,7 +86,7 @@ Cypress.Commands.add('useContactForm', () => {
     cy.get(homeElements.selectFile)
     .selectFile('cypress/upload_arquivo/sonhos.pdf')
     .should(input => {
-        console.log(input) // para mostrar no console do navegador os valores do input 
+        console.log(input) // Remover console log e linha de comentarios do codigo, são boas praticas de desenvolvimento
         expect(input[0].files[0].name).to.equal('sonhos.pdf')// verificou pelos parametros se o nome do arquivo está correto 
     })
 
