@@ -16,7 +16,7 @@ describe('Checkout', () => {
     it('Test Case 2: Verify Product quantity in Cart', ()  => {
         cy.changeProductQuantity()
         cy.valideProduct('product-1', 'Rs. 500', '4', 'Rs. 2000')
-       
+       //remover quebra de linha
                   
     })
 
