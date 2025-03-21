@@ -9,7 +9,7 @@ describe('Checkout', () => {
 
     it('Test Case 1: Add Products in Cart', () => {
         cy.addProductsCard()
-        cy.valideProduct('product-1', 'Rs. 500', '1', 'Rs. 500')
+        cy.valideProduct('product-1', 'Rs. 500', '1', 'Rs. 500') // passar os valores por variaveis e não diretamente na validação, pode melhorar sua manutenção do codigo
         cy.valideProduct('product-2', 'Rs. 400', '1','Rs. 400')
     })
 
