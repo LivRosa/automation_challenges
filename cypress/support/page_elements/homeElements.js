@@ -4,6 +4,7 @@ const homeElements = {
     btnSignup: '[data-qa="signup-button"]',
     inputLoginEmail: '[data-qa="login-email"]',
     inputLoginPassword: '[data-qa="login-password"]',
+    btnLogin: '[data-qa="login-button"]',
     checkTitle: '#id_gender1',
     inputNameSignup: '#name',
     inputPasswordSignup: '#password',
@@ -35,6 +36,9 @@ const homeElements = {
     searchProducts: '#search_product',
     btnSubmitSearch: '#submit_search',
     containerProducts: '.features_items',
-};
-
+    logoutLink: 'a[href="/logout"]',
+    deleteAccountLink: 'a[href="/delete_account"]',
+    signupLoginLink: 'a[href="/login"]',
+    cartLink: '.shop-menu > .nav > :nth-child(3) > a'
+}
 export default homeElements;

@@ -1,6 +1,6 @@
 ///<reference types ="Cypress"/>
 
-import '../support/homeCommands.js';
+import '../support/commands/homeCommands.js';
 
 describe('Home', () => {
     beforeEach( () => {
@@ -20,19 +20,17 @@ describe('Home', () => {
         cy.clickSignupLogin()
         cy.loginWithValidCredentials()
         cy.loggedInUserNameIsCorrect()
-        cy.contains(' Logout').click()
+        cy.logout()
    })
 
    it('Test Case 3: Log in with invalid email and password',  () => {
         cy.clickSignupLogin()
         cy.loginWithInvalidCredentials()
-        cy.contains('Your email or password is incorrect!').should('be.visible')
     })
 
     it('Test Case 4: Register user with existing email', () => {
         cy.clickSignupLogin()
         cy.registerWithExistingEmail()
-        cy.contains('Email Address already exist!').should('be.visible')
     })
 
     it('Test Case 5: Using the contact form', () => {

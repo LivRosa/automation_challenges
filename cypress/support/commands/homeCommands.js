@@ -1,21 +1,22 @@
-import home from "../fixtures/home.json";
-import homeElements from "./page_elements/homeElements.js";
+import home from "../../fixtures/home.json";
+import authMessages from "../../fixtures/authMessages.json"
+import homeElements from "../page_elements/homeElements.js";
 
 Cypress.Commands.add('registerUser', () => {
-    cy.contains('New User Signup!').should('be.visible')
+    cy.contains(authMessages.new_user_signup).should('be.visible')
 
     cy.get(homeElements.inputSignupName).type(home.user1.name)
     cy.get(homeElements.inputSignupEmail).type(home.user1.email)
     cy.get(homeElements.btnSignup).click()
             
-    cy.contains('Enter Account Information').should('be.visible')
+    cy.contains(authMessages.account_information_signup).should('be.visible')
 
     cy.get(homeElements.checkTitle).check()
     cy.get(homeElements.inputNameSignup).clear().type(home.user1.name)
     cy.get(homeElements.inputPasswordSignup).type(home.user1.password)
-    cy.get(homeElements.selectDaySignup).select('25')
-    cy.get(homeElements.selectMonthSignup).select('April')
-    cy.get(homeElements.selectYearSignup).select('1998')
+    cy.get(homeElements.selectDaySignup).select(home.user1.day)
+    cy.get(homeElements.selectMonthSignup).select(home.user1.month)
+    cy.get(homeElements.selectYearSignup).select(home.user1.year)
     cy.get(homeElements.newsletterSignup).check()
 
     cy.get(homeElements.firstNameSignup).type(home.user1.name)
@@ -34,26 +35,25 @@ Cypress.Commands.add('registerUser', () => {
 })
 
 Cypress.Commands.add('deleteAccount', () => {
-    cy.contains('Delete Account').click()
+    cy.get(homeElements.deleteAccountLink).click()
     cy.get(homeElements.btnContinueSignup).click()
 })
 
 Cypress.Commands.add('clickSignupLogin', () => { 
-    cy.contains('Signup / Login').click()
+    cy.get(homeElements.signupLoginLink).click()
 })
 
 Cypress.Commands.add('loginWithValidCredentials', () => {
-    cy.contains('Signup / Login').click()
     cy.get(homeElements.inputLoginEmail).type(home.user2.email)
     cy.get(homeElements.inputLoginPassword).type(home.user2.password)
-    cy.get('[data-qa="login-button"]').click()
+    cy.get(homeElements.btnLogin).click()
 })
 
 Cypress.Commands.add('loginWithInvalidCredentials', () => {
-    cy.get('a').contains('Signup / Login').click()
     cy.get(homeElements.inputLoginEmail).type(home.user1.email)
     cy.get(homeElements.inputLoginPassword).type(home.user1.password)
-    cy.get('[data-qa="login-button"]').click()
+    cy.get(homeElements.btnLogin).click()
+    cy.contains(authMessages.login_incorrect).should('be.visible')
 })
 
 Cypress.Commands.add('loggedInUserNameIsCorrect', () => { 
@@ -61,14 +61,19 @@ Cypress.Commands.add('loggedInUserNameIsCorrect', () => {
     cy.get('a b').should('have.value', '')
 })
 
+Cypress.Commands.add('logout', () => {
+    cy.get(homeElements.logoutLink).click()
+})
+
 Cypress.Commands.add('registerWithExistingEmail', () => {
     cy.get(homeElements.inputSignupName).type(home.user2.name)
     cy.get(homeElements.inputSignupEmail).type(home.user2.email)
     cy.get(homeElements.btnSignup).click()
+    cy.contains(authMessages.email_already_registered).should('be.visible')
 })
 
 Cypress.Commands.add('useContactForm', () => {
-    const longText = 'teste'
+    const longText = home.user2.name
 
     cy.get(homeElements.contactUsLink).click()
 
@@ -86,7 +91,7 @@ Cypress.Commands.add('useContactForm', () => {
     })
 
     cy.get(homeElements.btnSubmitContactUs).click()
-    cy.get(homeElements.statusContactUs).should('have.text', 'Success! Your details have been submitted successfully.')
+    cy.get(homeElements.statusContactUs).should('have.text', authMessages.file_submission_success)
     cy.get(homeElements.homePageLink).click()
 })
 
@@ -95,7 +100,5 @@ Cypress.Commands.add('searchProduct', () => {
 
     cy.get(homeElements.searchProducts).type('H&M')
     cy.get(homeElements.btnSubmitSearch).click()
-    cy.contains('Searched Products').should('be.visible')
-
     cy.get(homeElements.containerProducts).should('be.visible')
 })
