@@ -19,3 +19,5 @@ import './commands/checkoutCommands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+//Remover comantaris é sempre importante para um codigo limpo
