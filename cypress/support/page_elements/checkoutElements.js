@@ -1,0 +1,30 @@
+const checkoutElements = {
+    ContainerProduct: '.single-products',
+    btnAddCard: '[data-product-id]',
+    btnContinueShopping: '.modal-footer > .btn',
+    viewCartLink: 'a[href="/view_cart"] u',
+    cardInfo: '#cart_info',
+    priceCheckout: '.cart_price',
+    quantityCheckout: '.cart_quantity',
+    totalCheckout: '.cart_total',
+    viewProdcut: '.choose',
+    quantityPdp: '#quantity',
+    btnaddCardPdp: '.btn.btn-default.cart i.fa-shopping-cart',
+    modalAddCard: '.modal-content',
+    btnProceedToCheckout: 'a.btn.btn-default.check_out',
+    registerLoginLink: 'a[href="/login"] u',
+    firstlastNameCheckout: '.address_firstname.address_lastname',
+    addressCheckout: '.address_address1.address_address2',
+    countryCheckout: '.address_country_name',
+    phoneCheckout: '.address_phone',
+    nameCard: '[data-qa="name-on-card"]',
+    cardNumber: '[data-qa="card-number"]',
+    inputcvc: '[data-qa="cvc"]',
+    expirationMonth: '[data-qa="expiry-month"]',
+    expirationYear: '[data-qa="expiry-year"]',
+    btnPay: '[data-qa="pay-button"]',
+    payment: 'a[href="/payment"]',
+    containerAddress: '#address_delivery'
+}
+
+export default checkoutElements;

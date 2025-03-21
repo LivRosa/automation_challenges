@@ -1,0 +1,9 @@
+{
+    "new_user_signup": "New User Signup!",
+    "account_information_signup": "Enter Account Information",
+    "file_submission_success": "Success! Your details have been submitted successfully.",
+    "login_incorrect": "Your email or password is incorrect!",
+    "email_already_registered": "Email Address already exist!",
+    "order_confirmed": "Congratulations! Your order has been confirmed!",
+    "subscribed_successfully": "You have been successfully subscribed!"
+}

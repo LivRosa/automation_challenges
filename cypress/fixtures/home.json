@@ -1,0 +1,25 @@
+{
+    "user1":{
+        "name": "Mr. QA Lívia",
+        "last_name": "Cypress",
+        "email": "qualityassurance@livia.com",
+        "password": "Qa@852",
+        "month": "April",
+        "day": "25",
+        "year": "1998",
+        "company": "Testando",
+        "address_1":"R. Aparecido Chaves",
+        "address_2":"R. Maria Antônia",
+        "country": "Canada",
+        "state": "Amazonas",
+        "city":"Manaus",
+        "zipcode":"01153 012",
+        "number":"(12) 982465301"
+    },
+
+    "user2": {
+        "name": "QA",
+        "email": "livia.qa@teste.com.br",
+        "password": "teste@456"
+    }  
+}
